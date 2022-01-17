@@ -65,6 +65,9 @@ where the space between the sequence name and the sequence is a single tab.
 
 You can test your program by running the `test-fasta-recs.sh` script in the root directory of the repository. It will compare the output of your `fasta-recs` program against the expected output.
 
+In `progs/fasta-recs/main.go` you will find a template to start from. Read the `progs/README.md` file for how to build and install the resulting executable. If you want to share source files between executables, you can check `shared/shared.go` for further information. Basically, you can put any directory in the root and import it as a module relative to `birc.au.dk/gsa`. For example, if you have a module in the directory `fasta/` in the root of the repository, you can import it with `import "birc.au.dk/gsa/fasta"`.
+
+
 ## Exercise: Extracting subsequences
 
 Once we start searching in genomic sequences, it can be helpful to have a tool that extracts a subsequence from a Simple-FASTA file. With such a tool, or code to a similar effect, we can get the genomic sequence at a given position and check that it matches the pattern we searched for.
@@ -99,3 +102,5 @@ cat
 ```
 
 You can use the script `test-get-subseqs.sh` to test your program.
+
+In `progs/fasta-recs/main.go` you will find a template to start from.
