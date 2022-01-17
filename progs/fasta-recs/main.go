@@ -13,7 +13,7 @@ func main() {
 
 	f, err := os.Open(os.Args[1])
 	if err != nil {
-		fmt.Fprintf(os.Stderr, err.Error())
+		fmt.Fprintf(os.Stderr, "%s", err.Error())
 		os.Exit(1)
 	}
 	defer f.Close()
