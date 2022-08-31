@@ -1,10 +1,10 @@
-name: Test fasta-recs tool
+name: Test get-subseqs tool
 
 on: [push]
 
 jobs:
   testing:
-    name: Test fasta-recs tool
+    name: Test get-subseqs tool
     runs-on: ubuntu-latest
     steps:
       - name: Checking out repository
