@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"birc.au.dk/gsa/fasta"
 )
 
 func main() {
@@ -13,10 +15,16 @@ func main() {
 
 	f, err := os.Open(os.Args[1])
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%s", err.Error())
+		fmt.Fprintln(os.Stderr, err.Error())
 		os.Exit(1)
 	}
 	defer f.Close()
 
-	fmt.Println("I should be processing the input file now!")
+	err = fasta.MapFasta(f, func(name, seq string) {
+		fmt.Printf("%s\t%s\n", name, seq)
+	})
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
+		os.Exit(1)
+	}
 }
