@@ -11,7 +11,7 @@ build_cmd() {
 
 success=1
 test_expected() {
-    for f in test-data/*.fa; do
+    for f in .test/test-data/*.fa; do
         coords=$f-coordinates
         expected=$f-get-subseqs-expected
         local cmd=$(build_cmd $1)
